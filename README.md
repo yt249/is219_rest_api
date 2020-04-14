@@ -3,10 +3,18 @@ This project is a to setup WebStorm to work with Bootstrap, SASS(SCSS), BrowserS
 with partial html files.  When you complete this project, you will be able to build your project with these tools and 
 view it live in the browser. You will be able to use HTML snippets for your header and main menu and when you save your 
 files, it will automatically build your project and update your browser without having to press the refresh button.  You will also be able to host your website on GitHub pages.
+## Assignments
+* [Assignment 1 Here](BootStrapBrowserSyncGulp-Homework.pdf)
+* [Assignment 2](BootstrapJavaScriptDOMIntro.pdf)
 
-[Download Assignment PDF Here](BootStrapBrowserSyncGulp-Homework.pdf)
 
-[View Assignment Video Here](https://youtu.be/rusniDSzXGs)
+#  Videos
+* [Video 1 - Introduction Project Setup](https://youtu.be/rusniDSzXGs)
+* [Video 2 - Boootstrap Tables and Layout](https://youtu.be/5vVfAyUgjg0)
+* [Video 3 - Boootstrap Carousel](https://youtu.be/US2veWWX4hY )
+* [Video 4 - Z-Layout Bottoms of Carousel](https://youtu.be/YM1XB60unn4)
+* [Video 5 - Bootstrap JavaScript and DOM](https://youtu.be/5zxsI5l84-8)
+
 
 # Prerequisites
 1. Install Node.js

@@ -1,40 +1,27 @@
 (function () {
 
-    let cities = [
-        {
-            "fldName": "Tokyo",
-            "fldLat": 35.6850,
-            "fldLong": 139.7514,
-            "fldCountry": "Japan",
-            "fldAbbreviation": "JPN",
-            "fldCapitalStatus": "primary",
-            "fldPopulation": 35676000
-        }, {
-            "fldName": "New York",
-            "fldLat": 40.6943,
-            "fldLong": -73.9249,
-            "fldCountry": "United States",
-            "fldAbbreviation": "USA",
-            "fldCapitalStatus": "NA",
-            "fldPopulation": 19354922
-        }
+    let mountains = [
+        { name: "Monte Falco", height: 1658, place: "Parco Foreste Casentinesi" },
+        { name: "Monte Falterona", height: 1654, place: "Parco Foreste Casentinesi" },
+        { name: "Poggio Scali", height: 1520, place: "Parco Foreste Casentinesi" },
+        { name: "Pratomagno", height: 1592, place: "Parco Foreste Casentinesi" },
+        { name: "Monte Amiata", height: 1738, place: "Siena" }
     ];
 
-
     let table = document.querySelector("table");
-    let data = Object.keys(cities[0]);
+    let TableHeadings = Object.keys(mountains[0]);
     table.classList.add("table")
-    generateTableHead(table, data);
-    generateTable(table, cities);
+    generateTableHead(table, TableHeadings);
+    generateTable(table, mountains);
 
 })();
 
-function generateTableHead(table, data) {
+function generateTableHead(table, TableHeadings) {
     let thead = table.createTHead();
     let row = thead.insertRow();
-    for (let key of data) {
+    for (let heading of TableHeadings) {
         let th = document.createElement("th");
-        let text = document.createTextNode(key);
+        let text = document.createTextNode(heading);
         th.appendChild(text);
         row.appendChild(th);
     }
