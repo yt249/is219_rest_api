@@ -1,19 +1,16 @@
-# Project Description
-This project is a to setup WebStorm to work with Bootstrap, SASS(SCSS), BrowserSync, GULP, GitHub Pages, and web templates 
-with partial html files.  When you complete this project, you will be able to build your project with these tools and 
-view it live in the browser. You will be able to use HTML snippets for your header and main menu and when you save your 
-files, it will automatically build your project and update your browser without having to press the refresh button.  You will also be able to host your website on GitHub pages.
+# Repository Description
+These are are a series of assignments to teach front end JavaScript using pure JavaScript, Bootstrap, Gulp, and BrowserSync
 ## Assignments
-* [Assignment 1 Here](BootStrapBrowserSyncGulp-Homework.pdf)
-* [Assignment 2](BootstrapJavaScriptDOMIntro.pdf)
+* [Assignment 1 - Setup](BootStrapBrowserSyncGulp-Homework.pdf)
+* [Assignment 2 - JavaScript Introduction with the DOM and Bootstrap](BootstrapJavaScriptDOMIntro.pdf)
 
 
 #  Videos
-* [Video 1 - Introduction Project Setup](https://youtu.be/rusniDSzXGs)
-* [Video 2 - Boootstrap Tables and Layout](https://youtu.be/5vVfAyUgjg0)
-* [Video 3 - Boootstrap Carousel](https://youtu.be/uoNYzWw5_Js)
-* [Video 4 - Z-Layout Bottom of Carousel](https://youtu.be/hOZb45fZYyE)
-* [Video 5 - Bootstrap JavaScript and DOM](https://youtu.be/5zxsI5l84-8)
+* [Video 1 - Introduction Project Setup for Assignment 1](https://youtu.be/rusniDSzXGs)
+* [Video 2 - Boootstrap Tables and Layout - additional information](https://youtu.be/5vVfAyUgjg0)
+* [Video 3 - Boootstrap Carousel - additional information](https://youtu.be/uoNYzWw5_Js)
+* [Video 4 - Z-Layout Bottom of Carousel - additional information](https://youtu.be/hOZb45fZYyE)
+* [Video 5 - Bootstrap JavaScript and DOM for Assignment 2](https://youtu.be/5zxsI5l84-8)
 
 
 # Prerequisites
