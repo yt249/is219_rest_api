@@ -1,26 +1,26 @@
 'use strict';
 const express = require('express');
 const app = express();
-
-const mysql = require('mysql')
+const open = require("open");
 
 app.use(express.static('docs'));
+open("http://localhost:9080");
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    port: '32000',
-    user: 'root',
-    password: 'root',
-    database: 'citiesData'
-})
+
 app.get('/api/v1/cities', function(req, res) {
-
-    connection.connect()
+    const mysql = require('mysql')
+    const connection = mysql.createConnection({
+        host: 'localhost',
+        port: '32000',
+        user: 'root',
+        password: 'root',
+        database: 'citiesData'
+    });
+    connection.connect();
 
     connection.query('SELECT * FROM tblCitiesImport', function (err, rows, fields) {
         if (err) throw err;
 
-        console.log(rows);
         res.json(rows);
     })
 

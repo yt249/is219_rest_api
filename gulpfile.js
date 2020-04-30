@@ -11,7 +11,7 @@ const jsImport = require('gulp-js-import');
 const sourcemaps = require('gulp-sourcemaps');
 const htmlPartial = require('gulp-html-partial');
 const clean = require('gulp-clean');
-const nodemon = require('nodemon')
+const nodemon = require('nodemon');
 const isProd = process.env.NODE_ENV === 'prod';
 
 
@@ -70,30 +70,12 @@ function img() {
         .pipe(gulp.dest('docs/img/'));
 }
 
-function serve() {
-
-
-    browserSync.init({
-        open: true,
-        server: './docs'
-    });
-}
-
-function browserSyncReload(done) {
-
-    browserSync.reload();
-
-    done();
-
-}
-
 
 function watchFiles() {
-    gulp.watch('src/**/*.html', gulp.series(html, browserSyncReload));
-    gulp.watch('src/**/*.scss', gulp.series(css, browserSyncReload));
-    gulp.watch('src/**/*.js', gulp.series(js, browserSyncReload));
+    gulp.watch('src/**/*.html', gulp.series(html));
+    gulp.watch('src/**/*.scss', gulp.series(css));
+    gulp.watch('src/**/*.js', gulp.series(js));
     gulp.watch('src/img/**/*.*', gulp.series(img));
-    gulp.watch('src/projects/**/*.html', gulp.series(html, browserSyncReload));
 
     return;
 }
@@ -109,5 +91,5 @@ exports.html = html;
 exports.js = js;
 exports.del = del;
 exports.nodeMonServe = nodeMonServe;
-exports.serve = gulp.parallel(html, css, js, img, watchFiles, nodeMonServe, serve);
+exports.serve = gulp.parallel(html, css, js, img, watchFiles, nodeMonServe);
 exports.default = gulp.series(del, html, css, js, img);

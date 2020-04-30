@@ -1,7 +1,21 @@
+//this is the first function called when the web page opens
 
+(function () {
+    let xmlHTTP = new XMLHttpRequest();
+    let url = "http://localhost:9080/api/v1/cities";
 
+    xmlHTTP.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            let myArr = JSON.parse(this.responseText);
+            createTable(myArr);
+        }
+    };
+    xmlHTTP.open("GET", url, true);
+    xmlHTTP.send();
 
+})();
 
+//This class generates the table from an array of objects
 function createTable(tableArray) {
     let table = document.querySelector("table");
     let TableHeadings = Object.keys(tableArray[0]);
@@ -10,25 +24,7 @@ function createTable(tableArray) {
     generateTable(table, tableArray);
 }
 
-
-(function () {
-    let xmlhttp = new XMLHttpRequest();
-    let url = "http://localhost:9080/api/v1/cities";
-
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            let myArr = JSON.parse(this.responseText);
-            createTable(myArr);
-        }
-    };
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
-
-
-
-
-})();
-
+//this class generates table headings
 function generateTableHead(table, TableHeadings) {
     let thead = table.createTHead();
     let row = thead.insertRow();
@@ -39,6 +35,7 @@ function generateTableHead(table, TableHeadings) {
         row.appendChild(th);
     }
 }
+//this class generates table data
 
 function generateTable(table, data) {
     for (let element of data) {
