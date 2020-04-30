@@ -11,7 +11,21 @@ const jsImport = require('gulp-js-import');
 const sourcemaps = require('gulp-sourcemaps');
 const htmlPartial = require('gulp-html-partial');
 const clean = require('gulp-clean');
+const nodemon = require('nodemon')
 const isProd = process.env.NODE_ENV === 'prod';
+
+
+function nodeMonServe() {
+    nodemon({
+        script: 'src/server.js',
+        ext: 'js',
+        env: {
+            NODE_ENV: 'dev',
+            PORT: 9080
+        },
+        ignore: ['./node_modules/**']
+    });
+};
 
 const htmlFile = [
     'src/*.html',
@@ -57,6 +71,8 @@ function img() {
 }
 
 function serve() {
+
+
     browserSync.init({
         open: true,
         server: './docs'
@@ -64,13 +80,13 @@ function serve() {
 }
 
 function browserSyncReload(done) {
+
     browserSync.reload();
+
     done();
+
 }
-function staticJsonFile() {
-    return gulp.src('src/data.json')
-            .pipe(gulp.dest('docs'));
-};
+
 
 function watchFiles() {
     gulp.watch('src/**/*.html', gulp.series(html, browserSyncReload));
@@ -78,6 +94,7 @@ function watchFiles() {
     gulp.watch('src/**/*.js', gulp.series(js, browserSyncReload));
     gulp.watch('src/img/**/*.*', gulp.series(img));
     gulp.watch('src/projects/**/*.html', gulp.series(html, browserSyncReload));
+
     return;
 }
 
@@ -86,10 +103,11 @@ function del() {
         .pipe(clean());
 }
 
+
 exports.css = css;
 exports.html = html;
 exports.js = js;
-exports.del = del
-exports.staticJsonFile = staticJsonFile();
-exports.serve = gulp.parallel(html, css, js, img, watchFiles, serve);
+exports.del = del;
+exports.nodeMonServe = nodeMonServe;
+exports.serve = gulp.parallel(html, css, js, img, watchFiles, nodeMonServe, serve);
 exports.default = gulp.series(del, html, css, js, img);

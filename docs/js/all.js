@@ -1,18 +1,31 @@
-(function () {
 
-    let mountains = [
-        { name: "Monte Falco", height: 1658, place: "Parco Foreste Casentinesi" },
-        { name: "Monte Falterona", height: 1654, place: "Parco Foreste Casentinesi" },
-        { name: "Poggio Scali", height: 1520, place: "Parco Foreste Casentinesi" },
-        { name: "Pratomagno", height: 1592, place: "Parco Foreste Casentinesi" },
-        { name: "Monte Amiata", height: 1738, place: "Siena" }
-    ];
 
+
+
+function createTable(tableArray) {
     let table = document.querySelector("table");
-    let TableHeadings = Object.keys(mountains[0]);
+    let TableHeadings = Object.keys(tableArray[0]);
     table.classList.add("table")
     generateTableHead(table, TableHeadings);
-    generateTable(table, mountains);
+    generateTable(table, tableArray);
+}
+
+
+(function () {
+    let xmlhttp = new XMLHttpRequest();
+    let url = "http://localhost:9080/api/v1/cities";
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            let myArr = JSON.parse(this.responseText);
+            createTable(myArr);
+        }
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+
+
+
 
 })();
 

@@ -3,6 +3,7 @@ These are are a series of assignments to teach front end JavaScript using pure J
 ## Assignments
 * [Assignment 1 - Setup](BootStrapBrowserSyncGulp-Homework.pdf)
 * [Assignment 2 - JavaScript Introduction with the DOM and Bootstrap](BootstrapJavaScriptDOMIntro.pdf)
+* [Assignment 3 - Building an API]()
 
 
 #  Videos
