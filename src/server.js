@@ -20,8 +20,7 @@ app.get('/api/v1/cities', function(req, res) {
 
     connection.query('SELECT * FROM tblCitiesImport', function (err, rows, fields) {
         if (err) throw err;
-
-        res.json(rows);
+        res.json({ "data": rows});
     })
 
     connection.end()

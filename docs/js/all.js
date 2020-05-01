@@ -1,19 +1,23 @@
-//this is the first function called when the web page opens
+(function ($) {
+    $('#citiesTable').DataTable( {
+        "ajax": "http://localhost:9080/api/v1/cities",
+        "columns": [
+            { "data": "id" },
+            { "data": "fldName" },
+            { "data": "fldLat" },
+            { "data": "fldLong" },
+            { "data": "fldCountry" },
+            { "data": "fldAbbreviation" },
+            { "data": "fldCapitalStatus" },
+            { "data": "fldPopulation" }
 
-(function () {
-    let xmlHTTP = new XMLHttpRequest();
-    let url = "http://localhost:9080/api/v1/cities";
+        ]
+    } );
 
-    xmlHTTP.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            let myArr = JSON.parse(this.responseText);
-            createTable(myArr);
-        }
-    };
-    xmlHTTP.open("GET", url, true);
-    xmlHTTP.send();
+})(jQuery);
 
-})();
+
+
 
 //This class generates the table from an array of objects
 function createTable(tableArray) {
